@@ -5,10 +5,10 @@ class Piece
         @pos = pos
         @color = color
         @board = board
-    end
-
+    end 
+    
     # def empty?
-    #     self == nullpiece
+    #     self.is_a?(Nullpiece)
     # end
 
     def inspect
