@@ -1,30 +1,44 @@
 require_relative 'employee'
 
 class Manager < Employee
-    def initialize(name, title, salary, boss, *employees)
-        super(name, title, salary, boss)
+    def initialize(name, title, salary, boss)
+        super
 
-        @employees = employees
+        @employees = []
     end
 
     def add_employee(employee)
-        employees << employee
+        employees.push(employee)
     end
 
-    def bonus(multiplier)
-        sum = employees.salary.sum
-        @bonus = (sum) * multiplier
+    def calc_bonus(multiplier)
+        total_salary * multiplier
+    end
+
+    def total_salary
+        sum = 0
+
+        employees.each do |employee|
+            sum += employee.salary
+            if employee.is_a?(Manager)
+                sum += employee.total_salary
+            end
+        end
+        sum
     end
 
     protected
-    attr_accessor :name, :title, :salary, :boss, :employees
+    attr_accessor :name, :title, :salary, :boss, :employees, :bonus
     
 end
 
-p ned = Manager.new('Ned', 'Founder', 1000000, nil)
-p darren = Manager.new('Darren', 'TA Manager', 78000, ned)
-p shauna = Employee.new('Shauna', 'TA', 12000, darren)
-p david = Employee.new('David', 'TA', 10000, darren)
+ned = Manager.new('Ned', 'Founder', 1000000, nil)
+darren = Manager.new('Darren', 'TA Manager', 78000, ned)
+shauna = Employee.new('Shauna', 'TA', 12000, darren)
+david = Employee.new('David', 'TA', 10000, darren)
 
-ned.add_employee(darren)
+p ned.calc_bonus(5)
+p david.calc_bonus(3)
+
+
 

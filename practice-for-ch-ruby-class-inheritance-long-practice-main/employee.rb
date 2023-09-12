@@ -5,12 +5,15 @@ class Employee
         @title = title
         @salary = salary
         @boss = boss
+        
+        if !boss.nil?
+            boss.add_employee(self)
+        end
     end
 
-    def bonus(multiplier)
-        @bonus = (salary) *multiplier
+    def calc_bonus(multiplier)
+        @bonus = (salary) * multiplier
     end
 
-    protected
     attr_accessor :name, :title, :salary, :boss
 end
