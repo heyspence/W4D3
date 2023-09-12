@@ -6,7 +6,7 @@ class Employee
         @salary = salary
         @boss = boss
         
-        if !boss.nil?
+        unless boss.nil?
             boss.add_employee(self)
         end
     end

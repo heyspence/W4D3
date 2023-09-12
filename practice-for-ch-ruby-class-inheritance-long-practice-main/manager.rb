@@ -20,6 +20,7 @@ class Manager < Employee
 
         employees.each do |employee|
             sum += employee.salary
+
             if employee.is_a?(Manager)
                 sum += employee.total_salary
             end
