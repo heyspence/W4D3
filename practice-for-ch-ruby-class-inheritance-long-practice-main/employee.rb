@@ -15,5 +15,6 @@ class Employee
         @bonus = (salary) * multiplier
     end
 
+    protected
     attr_accessor :name, :title, :salary, :boss
 end
