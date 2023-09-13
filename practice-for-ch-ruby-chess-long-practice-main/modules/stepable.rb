@@ -1,3 +1,3 @@
-module stepable
+module Stepable
 
 end
