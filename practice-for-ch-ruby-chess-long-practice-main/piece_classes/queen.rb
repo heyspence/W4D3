@@ -11,8 +11,8 @@ class Queen < Piece
 
     private
     def move_dirs
-        slideable.horizontal_dirs(pos)
-        slideable.HORIZONTAL_DIRS
+        horizontal_dirs
+        diagonal_dirs
     end
 
 end

@@ -50,7 +50,7 @@ class Board
         self[end_pos] = self[start_pos]
         self[start_pos] = @null_piece
     end 
-    
+
     attr_accessor :board
 end
 

@@ -11,7 +11,6 @@ class Knight < Piece
 
     private
     def move_dirs
-        stepable.horizontal_dirs(pos)
-        stepable.HORIZONTAL_DIRS
+        
     end
 end
